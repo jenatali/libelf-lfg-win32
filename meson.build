@@ -74,7 +74,10 @@ libelf_dep = declare_dependency(
 pkg.generate(
   libelf,
   name : 'libelf',
-  subdirs : ['libelf'],
+  subdirs : ['common', 'libelf', 'sys'],
   version : meson.project_version(),
   description : 'libelf description',
 )
+install_subdir('contrib/elftoolchain/common', install_dir: 'include')
+install_subdir('contrib/elftoolchain/libelf', install_dir: 'include')
+install_subdir('sys', install_dir: 'include')
